@@ -8,6 +8,16 @@ const ThiingsIconCell = ({ gridIndex }: ItemConfig) => {
         draggable={false}
         src={`/thiings/${images[gridIndex % images.length]}.png`}
       />
+
+       <button
+        onClick={() => {
+          const link = document.createElement("a");
+          link.href = `/thiings/${images[gridIndex % images.length]}.png`; // or a remote URL like https://example.com/pic.jpg
+          link.download = `${images[gridIndex % images.length]}.png`; // name to save as
+          link.click();
+        }}
+        className="absolute shadow bottom-2 right-5 text-xs h-fit p-0 px-2 rounded bg-green-500 ">Get</button>
+
     </div>
   );
 };
